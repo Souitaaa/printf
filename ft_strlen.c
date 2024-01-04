@@ -6,15 +6,15 @@
 /*   By: csouita <csouita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 02:36:27 by csouita           #+#    #+#             */
-/*   Updated: 2024/01/03 15:59:14 by csouita          ###   ########.fr       */
+/*   Updated: 2024/01/03 23:45:40 by csouita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i])

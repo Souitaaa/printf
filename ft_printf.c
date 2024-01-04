@@ -6,7 +6,7 @@
 /*   By: csouita <csouita@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 17:09:40 by csouita           #+#    #+#             */
-/*   Updated: 2024/01/03 21:58:17 by csouita          ###   ########.fr       */
+/*   Updated: 2024/01/04 09:36:01 by csouita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	type_check(char c, va_list argument)
 	else if (c == 'u')
 		len += ft_positif_number(va_arg(argument, int));
 	else if (c == 'x')
-		len += ft_putnbr_px(va_arg(argument, unsigned long),
+		len = ft_putnbr_px(va_arg(argument, unsigned int),
 				"0123456789abcdef", 0);
 	else if (c == 'X')
-		len += ft_putnbr_px(va_arg(argument, unsigned long),
+		len = ft_putnbr_px(va_arg(argument, unsigned int),
 				"0123456789ABCDEF", 0);
 	return (len);
 }
@@ -52,8 +52,8 @@ int	ft_printf(const char *f, ...)
 	{
 		if (f[i] == '%' && f[i + 1] == '\0')
 			return (-1);
-		else if (f[i] == '%' && f[i + 1] == '%')
-			len += ft_putchar(f[i + 1]);
+		else if (f[i] == '%' && f[i +1] == '%')
+			len += ft_putchar(f[i++]);
 		else if ((f[i] == '%') && (ft_strchr("cspdiuxX", f[i + 1])))
 			len += type_check(f[++i], argument);
 		else
@@ -63,9 +63,8 @@ int	ft_printf(const char *f, ...)
 	va_end(argument);
 	return (len);
 }
-int main ()
-{
-	printf("%p\n",NULL);
-	ft_printf("%p\n",NULL);
-
-}
+// int main ()
+// {
+// 	printf("%c\n",'0');
+// 	ft_printf("%c",'0');
+// }
